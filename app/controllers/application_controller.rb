@@ -22,4 +22,3 @@ class ApplicationController < ActionController::Base
   end
   helper_method :user_logged_in?
 end
-

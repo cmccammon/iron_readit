@@ -1,6 +1,6 @@
 class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
-
+  skip_before_filter :authenticate_user, only: [:show]
   # GET /votes
   # GET /votes.json
   def index
