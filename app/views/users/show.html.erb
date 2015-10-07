@@ -4,7 +4,27 @@
   <strong>Username:</strong>
   <%= @user.username %>
 </p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Links</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @user.links.each do |link| %>
+      <tr>
+        <td><%= link.link %></td>
+        <td><%= link.about %></td>
+        <td><%= link.user.username %></td>
+        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
+        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <%= link_to 'create new Readit', new_link_path(@user), class: 'btn btn-info btn-xs' %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
